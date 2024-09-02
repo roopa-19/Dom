@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMarks</title>
+    <style>
+        .Delete-text{
+            color:red;
+            cursor:pointer;
+        }
+        table{
+            border-collapse: collapse;
+            padding:10px;
+            width:80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bookmarks</h1>
+    <div>
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./application.html">Applied Jobs</a></div>
+        <div><a href="./bookmark.html">Bookmarks</a></div>
+    </div>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Salary</th>
+                <th>BookMark</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+    let bookMarkArr=JSON.parse(localStorage.getItem("bookmarks"));
+    bookMarkArr.forEach(function(element,index){
+            let tr=document.createElement("tr");
+            let td1=document.createElement("td");
+            td1.innerText=element.name;
+            let td2=document.createElement("td");
+            td2.innerText=element.mail;
+            let td3=document.createElement("td");
+            td3.innerText=element.role;
+            let td4=document.createElement("td");
+            td4.innerText=element.salary;
+            let td5=document.createElement("td");
+            td5.setAttribute("class","Delete-text");
+            td5.innerText="delete";
+            td5.addEventListener("click",function(){
+                deleteBookMark(element,index);
+            });
+            tr.append(td1,td2,td3,td4,td5);
+            document.querySelector("tbody").append(tr);
+    });
+    function deleteBookMark(element,index){
+        bookMarkArr.splice(index,1);
+        localStorage.setItem("bookmarks",JSON.stringify(bookMarkArr));
+        window.location.reload();
+    }
+
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">0</h1>
+    <button onClick="like()">like</button>
+    <button onClick="unlike()">unlike</button>
+</body>
+<script>
+    let i=0;
+    function like(){
+        i++;
+        document.getElementById("head").innerText=i;
+       
+    }
+    function unlike(){
+        i--;
+        document.getElementById("head").innerText=i;
+    }
+</script>
+</html>

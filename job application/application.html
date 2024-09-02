@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            padding:10px;
+            width:80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Applications</h1>
+    <div>
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./application.html">Applied Jobs</a></div>
+        <div><a href="./bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <!-- sort by Name -->
+     <select id="sortNames" onChange="handleNameSort()">
+        <option value="">sort by name</option>
+        <option value="asc">Ascending</option>
+        <option value="des">Descending</option>
+     </select>
+
+
+     <!-- sort by salary -->
+     <select id="sortSalary" onChange="handleSalarySort()">
+        <option value="">sort by Salary</option>
+        <option value="LTH">low to high</option>
+        <option value="HTL">high to low</option>
+     </select>
+
+
+    <!-- filter role -->
+    <select id="filter" onChange="handleFilterSort()">
+        <option value="">Filter category</option>
+        <option value="fsd">FSD</option>
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+     </select>
+
+
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Salary</th>
+                <th>Add to BookMark</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+
+    let jobArr=JSON.parse(localStorage.getItem("jobList"));
+    let bookMarkArr=JSON.parse(localStorage.getItem("bookmarks")) || [ ];   //bookmark Array
+    
+    displayData(jobArr);
+
+    function bookMyFunction(element){
+         bookMarkArr.push(element);
+        localStorage.setItem("bookmarks",JSON.stringify(bookMarkArr));
+        
+    }
+    
+
+    function handleFilterSort(){
+        let selectedValue=document.querySelector("#filter").value;
+        let filteredArray=jobArr.filter(function(element){
+            return element.role===selectedValue;
+        });
+        
+        displayData(filteredArray);
+    }
+
+    function handleSalarySort(){
+        let selectedValue=document.querySelector("#sortSalary").value;
+       
+        if(selectedValue==="LTH"){
+            jobArr.sort(function(a,b){
+                return a.salary - b.salary;
+            });
+            displayData(jobArr);
+        }
+        if(selectedValue==="HTL"){
+            jobArr.sort(function(a,b){
+                return b.salary - a.salary;
+            });
+            displayData(jobArr);
+        }
+    }
+
+    function handleNameSort(){
+        let selectedValue=document.querySelector("#sortNames").value;
+        
+        if(selectedValue==="asc"){
+            jobArr.sort((a,b)=>{
+                let x=a.name.toUpperCase();
+                let y=b.name.toUpperCase();
+                if(x > y){
+                    return 1;
+                }
+                if(x < y){
+                    return -1;
+                }
+                return 0;
+
+            });
+            displayData(jobArr);
+        }
+        if(selectedValue==="des"){
+            jobArr.sort((a,b)=>{
+                let x=a.name.toUpperCase();
+                let y=b.name.toUpperCase();
+                if(x > y){
+                    return -1;
+                }
+                if(x < y){
+                    return 1;
+                }
+                return 0;
+
+            });
+            displayData(jobArr);
+        }
+    }
+
+
+    function displayData(data){
+        document.querySelector("tbody").innerHTML="";
+        data.forEach(function(element){
+            let tr=document.createElement("tr");
+            let td1=document.createElement("td");
+            td1.innerText=element.name;
+            let td2=document.createElement("td");
+            td2.innerText=element.mail;
+            let td3=document.createElement("td");
+            td3.innerText=element.role;
+            let td4=document.createElement("td");
+            td4.innerText=element.salary;
+            let td5=document.createElement("td");
+            td5.innerText="Bookmark";
+            td5.addEventListener("click",function(){
+                bookMyFunction(element);
+            });
+            tr.append(td1,td2,td3,td4,td5);
+            document.querySelector("tbody").append(tr);
+    });
+    }
+
+</script>

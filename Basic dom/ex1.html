@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">My Header</h1>
+    <p id="paragraph">This is about Dom and I am Practicing it.</p>
+    <div id="box">This is Div tag</div>
+</body>
+<script>
+    console.log(document.getElementById("heading"));
+    console.log(document.getElementById("paragraph").innerHTML);
+    document.getElementById("paragraph").innerText="Document object Model";
+    console.log(document.getElementById("paragraph").innerHTML);
+    console.log(document.getElementById("box").innerHTML);
+    let box=document.getElementById("box");
+    box.innerText="This is Now box";
+    console.log(box.innerHTML);
+    alert("Bunny");
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >bunny</div>
+    <p>this is p tag</p>
+</body>
+<script>
+    let div=document.querySelector("div");
+   div.addEventListener("mouseenter",function(){
+    div.style.width="200px";
+    div.style.height="200px";
+    div.style.backgroundColor="pink";
+    div.style.color="blue";
+    div.innerText="mouse enter";
+    div.style.fontSize="20px";
+    div.style.display="flex";
+    div.style.justifyContent="center";
+    div.style.alignItems="center";
+   });
+   div.addEventListener("mouseleave",function(){
+    div.style.width="200px";
+    div.style.height="200px";
+    div.style.backgroundColor="purple";
+    div.style.color="white";
+    div.innerText="mouse leave";
+    div.style.fontSize="20px";
+    div.style.display="flex";
+    div.style.justifyContent="center";
+    div.style.alignItems="center";
+   });
+   document.querySelector("p").addEventListener("dblclick",doubleTapMe);
+   function doubleTapMe(){
+    document.querySelector("p").style.backgroundColor="pink";
+    document.querySelector("p").style.color="blue";
+   }
+
+
+</script>
+</html>

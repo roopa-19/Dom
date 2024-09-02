@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>I am p1 tag</p>
+    <p>I am p2 tag</p>
+    <p>I am p3 tag</p>
+    <div>I am Div Tag</div>
+</body>
+<script>
+   let ptags= document.getElementsByTagName("p");
+   console.log(ptags);
+   let divtag= document.getElementsByTagName("div");
+   console.log(divtag);
+   divtag[0].style.backgroundColor="blue";
+   divtag[0].style.color="white";
+   divtag[0].style.width="200px";
+   divtag[0].style.height="200px";
+   divtag[0].style.display="flex";
+   divtag[0].style.justifyContent="center";
+   divtag[0].style.alignItems="center";
+   divtag[0].style.fontSize="30px";
+
+</script>
+</html>

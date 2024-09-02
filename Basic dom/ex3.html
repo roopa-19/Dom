@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="bunny">Roopa</h1>
+    <button id="btn" onClick="completeFunction()">Mark as Read</button>
+</body>
+<script>
+    document.getElementById("bunny").style.backgroundColor="pink";
+    function completeFunction(){
+        document.getElementById("btn").style.backgroundColor="blue";
+        document.getElementById("btn").innerHTML="completed";
+        document.getElementById("btn").style.color="white";
+        document.getElementById("btn").style.fontSize="20px";
+        document.getElementById("btn").style.borderRadius="8px";
+        document.getElementById("bunny").style.backgroundColor="green";
+        document.getElementById("bunny").style.color="blue";
+
+    }
+</script>
+</html>

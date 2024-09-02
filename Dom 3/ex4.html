@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let div=document.createElement("div");
+    div.setAttribute("class","container");
+    let body=document.querySelector("body");
+    let p1=document.createElement("p");
+    p1.innerText="I'm p1 tag";
+    let innerdiv=document.createElement("div");
+    innerdiv.innerHTML="bunny";
+    p1.append(innerdiv);
+    let p2=document.createElement("p");
+    p2.innerText="I'm p2 tag";
+    let p3=document.createElement("p");
+    p3.innerText="Im p3 tag";
+    div.append(p1,p2,p3);
+    body.append(div);
+</script>
+</html>

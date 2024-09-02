@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let body=document.querySelector("body");
+    let buttons=[
+        {textContent:"primary",color:"white",bgcolor:"blue"},
+        {textContent:"secondary",color:"black",bgcolor:"pink"},
+        {textContent:"Success",color:"blue",bgcolor:"orange"},
+        {textContent:"Danger",color:"white",bgcolor:"red"}
+    ];
+    buttons.map(function(element){
+        let btn=document.createElement("button");
+        btn.textContent=element.textContent;
+        btn.style.color=element.color;
+        btn.style.backgroundColor=element.bgcolor;
+        body.append(btn);
+    });
+</script>
+</html>

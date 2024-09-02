@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head1">I am h1 tag</h1>
+    <h2 class="bunny">I am h2 tag</h2>
+    <p class="bunny">I am Paragraph tag</p>
+    <div class="bunny">I am Div Tag</div>
+</body>
+<script>
+    let h1=document.getElementById("head1");
+    console.log(h1);
+
+    let classCollection=document.getElementsByClassName("bunny");
+    console.log(classCollection);
+    for(let i=0;i<classCollection.length;i++){
+        console.log(classCollection[i]);
+    }
+</script>
+</html>
